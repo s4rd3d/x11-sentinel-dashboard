@@ -10,6 +10,7 @@
 
 # production
 /build
+/release.tar.xz
 
 # misc
 .DS_Store

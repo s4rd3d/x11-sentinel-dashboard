@@ -1,0 +1,13 @@
+# Docker related configurations
+/Dockerfile
+/.dockerignore
+
+# Node and applications files
+/build
+/node_modules
+release.tar.xz
+yarn-debug.log*
+yarn-error.log*
+
+# Git
+/.git
