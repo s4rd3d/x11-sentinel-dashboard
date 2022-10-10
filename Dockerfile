@@ -54,7 +54,7 @@ RUN --mount=type=cache,id=node-modules-x11-sentinel-dashboard,sharing=locked,tar
 FROM nginx:alpine AS runtime
 
 # Set up default port for NGINX
-ENV APP_SERVER_PORT=80
+ARG APP_SERVER_PORT=80
 
 # Expose HTTP by default
 EXPOSE ${APP_SERVER_PORT}

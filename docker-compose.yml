@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: .
+    environment:
+    # Common variables
+    - APP_SERVER_PORT
+    restart: unless-stopped
+    ports:
+    - "${APP_SERVER_PORT}:${APP_SERVER_PORT}"
