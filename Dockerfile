@@ -20,6 +20,9 @@ ARG ALPINE_VERSION=3.16
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS build
 
+ARG REACT_APP_SENTINEL_SERVER_URL=http://localhost:8084/api/1
+ARG REACT_APP_VERIFICATION_THRESHOLD=0.5
+
 # Run OS dependencies
 RUN --mount=type=cache,id=apk-global,sharing=locked,target=/var/cache/apk \
     ln -s /var/cache/apk /etc/apk/cache && \

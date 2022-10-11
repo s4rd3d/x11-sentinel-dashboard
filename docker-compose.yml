@@ -3,9 +3,12 @@ version: '3.9'
 services:
   frontend:
     build:
+      args:
+        REACT_APP_SENTINEL_SERVER_URL: ${REACT_APP_SENTINEL_SERVER_URL}
+        REACT_APP_VERIFICATION_THRESHOLD: ${REACT_APP_VERIFICATION_THRESHOLD}
       context: .
     environment:
-    # Common variables
+    # Runtime variables
     - APP_SERVER_PORT
     restart: unless-stopped
     ports:

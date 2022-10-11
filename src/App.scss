@@ -1,0 +1,19 @@
+// CSS reset
+@import '~scss-resets/resets/_meyer-reset';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;600;700;800&display=swap');
+
+// Layouts
+@import 'styles/layouts/layouts--container';
+
+// Components
+@import 'styles/components/components--header';
+
+// Variables
+@import 'styles/variables/variables--fonts';
+@import 'styles/variables/variables--breakpoints';
