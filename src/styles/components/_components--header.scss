@@ -7,14 +7,10 @@ header {
   min-height: 60px;
 
   h1 {
+    @include title;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 20px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-transform: uppercase;
   }
 
   .search {

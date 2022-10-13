@@ -2,13 +2,14 @@ import React from 'react';
 import autoBind from 'auto-bind';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { getUsers } from '../ServerApi';
-import { DEFAULT_USERS } from '../constants';
+import {
+  DEFAULT_USERS,
+  QUERY_INTERVAL,
+} from '../constants';
 
 const formatResult = (user) => {
   return (
-    <>
-      <span style={{ display: 'block', textAlign: 'left' }}>{user.userId}</span>
-    </>
+    <span style={{ display: 'block', textAlign: 'left' }}>{user.userId}</span>
   )
 }
 
@@ -20,6 +21,22 @@ class Header extends React.Component {
       users: DEFAULT_USERS,
     }
     this.getState();
+  }
+
+  // Set interval to query state
+  componentDidMount() {
+    const intervalId = setInterval(() => {
+      this.getState();
+    }, QUERY_INTERVAL);
+    this.setState({
+      intervalId
+    })
+  }
+
+  // Clear interval
+  componentWillUnmount() {
+    const { intervalId } = this.state;
+    clearInterval(intervalId);
   }
 
   async getState() {

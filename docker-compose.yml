@@ -6,6 +6,7 @@ services:
       args:
         REACT_APP_SENTINEL_SERVER_URL: ${REACT_APP_SENTINEL_SERVER_URL}
         REACT_APP_VERIFICATION_THRESHOLD: ${REACT_APP_VERIFICATION_THRESHOLD}
+        REACT_APP_QUERY_INTERVAL: ${REACT_APP_QUERY_INTERVAL}
       context: .
     environment:
     # Runtime variables

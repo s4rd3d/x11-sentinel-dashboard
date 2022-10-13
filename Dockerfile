@@ -22,6 +22,7 @@ FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS build
 
 ARG REACT_APP_SENTINEL_SERVER_URL=http://localhost:8084/api/1
 ARG REACT_APP_VERIFICATION_THRESHOLD=0.5
+ARG REACT_APP_QUERY_INTERVAL=60000
 
 # Run OS dependencies
 RUN --mount=type=cache,id=apk-global,sharing=locked,target=/var/cache/apk \

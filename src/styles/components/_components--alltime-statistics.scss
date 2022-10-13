@@ -1,0 +1,42 @@
+.alltime-statistics{
+  h2 {
+    @include title;
+    margin-left: 50px;
+    margin-top: 30px;
+  }
+  .card-container {
+    display: flex;
+    margin-top: 25px;
+
+    .card {
+      width: 200px;
+      height: 90px;
+      margin-left: 50px;
+      background-color: #F0EDEE;
+      border: 1px solid #2E4052;
+      border-radius: 5px;
+
+      h3 {
+        @include title;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+      }
+
+      h2 {
+        margin-top: 8px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 24px;
+      }
+
+      .text-green {
+        color: #679436;
+      }
+
+      .text-red {
+        color: #E55A3C;
+      }
+    }
+  }
+}
