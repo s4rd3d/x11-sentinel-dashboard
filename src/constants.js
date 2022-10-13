@@ -1,6 +1,7 @@
 export const DEFAULT_SENTINEL_SERVER_URL = 'http://localhost:8084/api/1'
 export const DEFAULT_USERS = [];
 export const DEFAULT_INCIDENTS = [];
+export const DEFAULT_EVENTS = [];
 export const DEFAULT_VERIFICATION_THRESHOLD = 0.5;
 export const DEFAULT_SERVER_STATUS = 'offline';
 

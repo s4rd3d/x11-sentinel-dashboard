@@ -6,6 +6,7 @@ import {
   DEFAULT_USERS,
   DEFAULT_INCIDENTS,
   DEFAULT_SERVER_STATUS,
+  DEFAULT_EVENTS,
 } from './constants';
 
 const SENTINEL_SERVER_URL =
@@ -48,5 +49,15 @@ export async function getIncidents() {
     return response.data.verifications;
   } else {
     return DEFAULT_INCIDENTS;
+  }
+}
+
+export async function getEvents() {
+  const url = `${SENTINEL_SERVER_URL}/events`;
+  const response = await get(url).catch(e => {return DEFAULT_EVENTS});
+  if (response.status === 200 && response.data.result === "ok") {
+    return response.data.events;
+  } else {
+    return DEFAULT_EVENTS;
   }
 }

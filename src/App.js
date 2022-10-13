@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'auto-bind';
 import Header from './components/Header';
-import AlltimeStatistics from './components/AlltimeStatistics';
+import AlltimeStatistics from './components/alltime-statistics';
 import './App.scss';
 
 class App extends React.Component {

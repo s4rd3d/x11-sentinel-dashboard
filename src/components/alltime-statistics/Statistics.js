@@ -1,15 +1,15 @@
 import React from 'react';
 import autoBind from 'auto-bind';
-import Card from './Card';
-import { getStatus, getUsers, getIncidents } from '../ServerApi';
+import Card from '../Card';
+import { getStatus, getUsers, getIncidents } from '../../ServerApi';
 import {
   DEFAULT_SERVER_STATUS,
   DEFAULT_USERS,
   DEFAULT_INCIDENTS,
   QUERY_INTERVAL,
-} from '../constants';
+} from '../../constants';
 
-class AlltimeStatistics extends React.Component {
+class Statistics extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -50,9 +50,8 @@ class AlltimeStatistics extends React.Component {
 
   render() {
     const { status, users, incidents } = this.state;
-    console.log(this.state)
     return (
-      <section className='alltime-statistics'>
+      <>
         <h2>
           Alltime statistics
         </h2>
@@ -71,12 +70,11 @@ class AlltimeStatistics extends React.Component {
           />
         </div>
         <h2>
-          Events per day
+          Events
         </h2>
-
-      </section>
+      </>
     );
   }
 };
 
-export default AlltimeStatistics;
+export default Statistics;
