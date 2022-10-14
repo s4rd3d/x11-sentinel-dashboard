@@ -2,6 +2,11 @@
   margin-left: 50px;
   margin-right: 50px;
 
+  @media #{$mq-xlarge} {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
   button {
     background: var(--primary-bg-color);
     color: var(--primary-text-color);
@@ -11,6 +16,11 @@
     font-size: 15px;
     padding: 3px 10px;
     font-weight: 700;
+
+    @media #{$mq-xlarge} {
+      font-size: 18px;
+      padding: 5px 15px;
+    }
 
     &:hover {
       border-color: #3080D0;

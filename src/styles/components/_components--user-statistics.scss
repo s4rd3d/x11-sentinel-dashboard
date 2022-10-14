@@ -11,11 +11,19 @@
       cursor: pointer;
       margin-right: 50px;
 
+      @media #{$mq-xlarge} {
+        margin-right: 100px;
+      }
+
       span {
         font-family: 'Roboto';
         color: var(--primary-text-color);
         margin-right: 10px;
         font-weight: 500;
+
+        @media #{$mq-xlarge} {
+          font-size: 20px;
+        }
       }
 
       &:hover {

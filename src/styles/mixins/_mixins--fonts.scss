@@ -6,4 +6,8 @@
   font-family: 'Roboto';
   font-size: 16px;
   line-height: 20px;
+
+  @media #{$mq-xlarge} {
+    font-size: 22px;
+  }
 }

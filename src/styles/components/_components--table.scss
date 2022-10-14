@@ -5,6 +5,10 @@
   margin-right: auto;
   width: 80%;
 
+  @media #{$mq-xlarge} {
+    margin-top: 50px;
+    }
+
   table {
     font-family: 'Roboto';
     border: 1px solid rgba(0, 0, 0, 0.3);

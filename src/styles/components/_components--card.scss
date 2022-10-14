@@ -2,6 +2,10 @@
   display: flex;
   margin-top: 25px;
 
+  @media #{$mq-xlarge} {
+    margin-top: 50px;
+  }
+
   .card {
     width: 200px;
     height: 90px;
@@ -10,11 +14,21 @@
     border: 1px solid var(--primary-text-color);;
     border-radius: 5px;
 
+    @media #{$mq-xlarge} {
+      width: 250px;
+      height: 112.5px;
+      margin-left: 100px;
+    }
+
     h3 {
       @include title;
       margin-left: auto;
       margin-right: auto;
       margin-top: 15px;
+
+      @media #{$mq-xlarge} {
+        margin-top: 25px;
+      }
     }
 
     h2 {

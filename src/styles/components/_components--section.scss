@@ -6,9 +6,19 @@ section {
     @include title;
     margin-left: 50px;
     margin-top: 30px;
+
+    @media #{$mq-xlarge} {
+      margin-left: 100px;
+      margin-top: 50px;
+      }
+
   }
 
   &:last-child {
     margin-bottom: 50px;
+
+    @media #{$mq-xlarge} {
+      margin-bottom: 100px;
+    }
   }
 }
