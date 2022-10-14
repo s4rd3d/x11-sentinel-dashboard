@@ -7,7 +7,7 @@ import {
   TABLE_QUERY_INTERVAL,
 } from '../../constants';
 
-class Statistics extends React.Component {
+class IncidentsTable extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -87,4 +87,4 @@ class Statistics extends React.Component {
   }
 };
 
-export default Statistics;
+export default IncidentsTable;
