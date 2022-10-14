@@ -12,8 +12,8 @@
       width: 200px;
       height: 90px;
       margin-left: 50px;
-      background-color: #F0EDEE;
-      border: 1px solid #2E4052;
+      background-color: var(--primary-bg-color);;
+      border: 1px solid var(--primary-text-color);;
       border-radius: 5px;
 
       h3 {
@@ -44,8 +44,8 @@
     margin-right: 50px;
 
     button {
-      background: #F0EDEE;
-      color: #2E4052;
+      background: var(--primary-bg-color);
+      color: var(--primary-text-color);
       border: 1px solid transparent;
       border-radius: 5px;
       font-family: 'Roboto';
