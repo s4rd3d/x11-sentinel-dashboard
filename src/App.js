@@ -27,6 +27,7 @@ class App extends React.Component {
         {window === "alltime" && (
           <AlltimeStatistics />
         )}
+        <footer />
       </>
     );
   }

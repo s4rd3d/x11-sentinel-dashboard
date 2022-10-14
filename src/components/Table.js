@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTable, useSortBy } from 'react-table';
-import { useSticky } from 'react-table-sticky';
 
 function Table({ columns, data }) {
   const {
@@ -15,13 +14,12 @@ function Table({ columns, data }) {
       data,
     },
     useSortBy,
-    useSticky,
   )
 
   return (
     <>
-      <table className='sticky' {...getTableProps()}>
-        <thead className='header'>
+      <table {...getTableProps()}>
+        <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
@@ -39,7 +37,7 @@ function Table({ columns, data }) {
             </tr>
           ))}
         </thead>
-        <tbody className='body' {...getTableBodyProps()}>
+        <tbody {...getTableBodyProps()}>
           {rows.map(
             (row, i) => {
               prepareRow(row);

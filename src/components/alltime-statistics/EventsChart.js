@@ -1,6 +1,7 @@
 import React from 'react';
 import autoBind from 'auto-bind';
 import { getEvents } from '../../ServerApi';
+import { getGradient } from '../../utils';
 import {
   QUERY_INTERVAL,
 } from '../../constants';
@@ -103,15 +104,23 @@ class AlltimeStatistics extends React.Component {
           fill: true,
           label: 'Event count',
           data,
-          borderColor: '#009093',
-          backgroundColor: '#39b992',
+          backgroundColor: function (context) {
+            const chart = context.chart;
+            const { ctx, chartArea } = chart;
+            if (!chartArea) {
+              // This case happens on initial chart load
+              return;
+            }
+            return getGradient(ctx, chartArea);
+          },
+          borderColor: '#39b992',
         },
       ]
     };
     return (
       <div className='chart-container'>
         <Line ref={this.chartRef} options={this.options} data={chartData} />
-        <button onClick={() => {this.chartRef.current.resetZoom()}}>
+        <button onClick={() => { this.chartRef.current.resetZoom() }}>
           Reset zoom
         </button>
       </div>
