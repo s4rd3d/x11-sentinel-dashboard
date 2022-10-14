@@ -1,0 +1,14 @@
+section {
+  margin-top: 90px;
+  margin-bottom: 60px;
+
+  h2 {
+    @include title;
+    margin-left: 50px;
+    margin-top: 30px;
+  }
+
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}

@@ -1,15 +1,15 @@
 import React from 'react';
 import autoBind from 'auto-bind';
-import Table from '../Table';
-import { getIncidents } from '../../ServerApi';
+import Table from './Table';
 import {
   DEFAULT_INCIDENTS,
   TABLE_QUERY_INTERVAL,
-} from '../../constants';
+} from '../constants';
 
 class IncidentsTable extends React.Component {
   constructor(props) {
     super(props);
+    this.getData = props.getData;
     autoBind(this);
     this.state = {
       incidents: DEFAULT_INCIDENTS,
@@ -34,7 +34,7 @@ class IncidentsTable extends React.Component {
   }
 
   async getState() {
-    const _incidents = await getIncidents();
+    const _incidents = await this.getData();
     const incidents = _incidents.map((i) => {
       return {
         date: i.date.substring(0, 10),

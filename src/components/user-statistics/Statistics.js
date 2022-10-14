@@ -1,10 +1,9 @@
 import React from 'react';
 import autoBind from 'auto-bind';
 import Card from '../Card';
-import { getStatus, getUsers, getIncidents } from '../../ServerApi';
+import { getUser, getIncidentsByUserId } from '../../ServerApi';
 import {
-  DEFAULT_SERVER_STATUS,
-  DEFAULT_USERS,
+  DEFAULT_USER,
   DEFAULT_INCIDENTS,
   QUERY_INTERVAL,
 } from '../../constants';
@@ -12,10 +11,10 @@ import {
 class Statistics extends React.Component {
   constructor(props) {
     super(props);
+    this.userId = props.userId;
     autoBind(this);
     this.state = {
-      status: DEFAULT_SERVER_STATUS,
-      users: DEFAULT_USERS.length,
+      user: DEFAULT_USER,
       incidents: DEFAULT_INCIDENTS.length,
     }
     this.getState();
@@ -38,31 +37,29 @@ class Statistics extends React.Component {
   }
 
   async getState() {
-    const status = await getStatus();
-    const users = await getUsers();
-    const incidents = await getIncidents();
+    const user = await getUser(this.userId);
+    const incidents = await getIncidentsByUserId(this.userId);
     this.setState({
-      status,
-      users,
+      user,
       incidents,
     });
   }
 
   render() {
-    const { status, users, incidents } = this.state;
+    const { user, incidents } = this.state;
     return (
       <>
         <h2>
-          Alltime statistics
+          User statistics
         </h2>
         <div className='card-container'>
           <Card
-            title={'server status'}
-            value={status}
+            title={'user id'}
+            value={user.userId}
           />
           <Card
-            title={'users'}
-            value={users.length}
+            title={'registration date'}
+            value={user.createdAt.substring(0, 10)}
           />
           <Card
             title={'incidents'}

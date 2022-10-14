@@ -1,0 +1,35 @@
+.card-container {
+  display: flex;
+  margin-top: 25px;
+
+  .card {
+    width: 200px;
+    height: 90px;
+    margin-left: 50px;
+    background-color: var(--primary-bg-color);;
+    border: 1px solid var(--primary-text-color);;
+    border-radius: 5px;
+
+    h3 {
+      @include title;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+    }
+
+    h2 {
+      margin-top: 8px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 24px;
+    }
+
+    .text-green {
+      color: #679436;
+    }
+
+    .text-red {
+      color: #E55A3C;
+    }
+  }
+}

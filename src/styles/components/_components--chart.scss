@@ -1,0 +1,20 @@
+.chart-container {
+  margin-left: 50px;
+  margin-right: 50px;
+
+  button {
+    background: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 15px;
+    padding: 3px 10px;
+    font-weight: 700;
+
+    &:hover {
+      border-color: #3080D0;
+      background: #DFF1FF;
+    }
+  }
+}

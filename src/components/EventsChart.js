@@ -1,10 +1,9 @@
 import React from 'react';
 import autoBind from 'auto-bind';
-import { getEvents } from '../../ServerApi';
-import { getGradient } from '../../utils';
+import { getGradient } from '../utils';
 import {
   QUERY_INTERVAL,
-} from '../../constants';
+} from '../constants';
 
 import {
   Chart as ChartJS,
@@ -24,6 +23,7 @@ class AlltimeStatistics extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
+    this.getData = props.getData;
     ChartJS.register(
       CategoryScale,
       LinearScale,
@@ -85,7 +85,7 @@ class AlltimeStatistics extends React.Component {
   }
 
   async getState() {
-    const events = await getEvents();
+    const events = await this.getData();
     const labels = events.map((event) => event.date.substring(0, 10));
     const data = events.map((event) => event.eventCount);
 
@@ -118,12 +118,17 @@ class AlltimeStatistics extends React.Component {
       ]
     };
     return (
-      <div className='chart-container'>
-        <Line ref={this.chartRef} options={this.options} data={chartData} />
-        <button onClick={() => { this.chartRef.current.resetZoom() }}>
-          Reset zoom
-        </button>
-      </div>
+      <>
+        <h2>
+          Events
+        </h2>
+        <div className='chart-container'>
+          <Line ref={this.chartRef} options={this.options} data={chartData} />
+          <button onClick={() => { this.chartRef.current.resetZoom() }}>
+            Reset zoom
+          </button>
+        </div>
+      </>
     );
   }
 };

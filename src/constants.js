@@ -1,5 +1,12 @@
 export const DEFAULT_SENTINEL_SERVER_URL = 'http://localhost:8084/api/1'
 export const DEFAULT_USERS = [];
+export const DEFAULT_USER = {
+  userId: 'N/A',
+  eventCount: 0,
+  createdAt: '1970-01-01T00:00:00Z',
+  verifications: 0,
+  incidents: 0
+};
 export const DEFAULT_INCIDENTS = [];
 export const DEFAULT_EVENTS = [];
 export const DEFAULT_VERIFICATION_THRESHOLD = 0.5;

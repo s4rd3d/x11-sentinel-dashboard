@@ -16,6 +16,8 @@ const formatResult = (user) => {
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.handleOnSelect = props.handleOnSelect;
+    this.backToHome = props.backToHome;
     autoBind(this);
     this.state = {
       users: DEFAULT_USERS,
@@ -53,7 +55,7 @@ class Header extends React.Component {
     const { users } = this.state;
     return (
       <header>
-        <h1>
+        <h1 onClick={this.backToHome}>
           X11 Sentinel Dashboard
         </h1>
         <div className='search'>
@@ -64,6 +66,8 @@ class Header extends React.Component {
             formatResult={formatResult}
             fuseOptions={{ keys: ["userId"] }}
             resultStringKeyName="userId"
+            onSelect={(user) => {this.handleOnSelect(user.userId)}}
+            maxResults={3}
           />
         </div>
       </header >

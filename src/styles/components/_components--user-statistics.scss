@@ -1,0 +1,31 @@
+.user-statistics {
+  .back-to-home-container {
+    display: flex;
+    justify-content: end;
+    margin-bottom: -50px;
+
+    .back-to-home {
+      display: flex;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+      margin-right: 50px;
+
+      span {
+        font-family: 'Roboto';
+        color: var(--primary-text-color);
+        margin-right: 10px;
+        font-weight: 500;
+      }
+
+      &:hover {
+        span {
+          color: #3080D0
+        }
+        svg {
+          filter: invert(42%) sepia(85%) saturate(491%) hue-rotate(168deg) brightness(92%) contrast(88%);
+        }
+      }
+    }
+  }
+}
