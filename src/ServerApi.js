@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { fakeData } from './utils';
+
 import {
   DEFAULT_SENTINEL_SERVER_URL,
   DEFAULT_VERIFICATION_THRESHOLD,
@@ -24,8 +26,11 @@ async function get(url) {
 }
 
 export async function getUsers() {
+  if (process.env.REACT_APP_TEST) {
+    return fakeData.users;
+  }
   const url = `${SENTINEL_SERVER_URL}/users?threshold=${VERIFICATION_THRESHOLD}`;
-  const response = await get(url).catch(e => {return DEFAULT_USERS});
+  const response = await get(url).catch(e => { return DEFAULT_USERS });
   if (response.status === 200 && response.data.result === "ok") {
     return response.data.users;
   } else {
@@ -34,8 +39,11 @@ export async function getUsers() {
 }
 
 export async function getUser(userId) {
+  if (process.env.REACT_APP_TEST) {
+    return fakeData.users.filter((user) => {return user.userId === userId});
+  }
   const url = `${SENTINEL_SERVER_URL}/users/${userId}/?threshold=${VERIFICATION_THRESHOLD}`;
-  const response = await get(url).catch(e => {return DEFAULT_USER});
+  const response = await get(url).catch(e => { return DEFAULT_USER });
   if (response.status === 200 && response.data.result === "ok") {
     return response.data.user;
   } else {
@@ -44,8 +52,11 @@ export async function getUser(userId) {
 }
 
 export async function getStatus() {
+  if (process.env.REACT_APP_TEST) {
+    return 'online';
+  }
   const url = `${SENTINEL_SERVER_URL}/state`;
-  const response = await get(url).catch(e => {return DEFAULT_SERVER_STATUS});
+  const response = await get(url).catch(e => { return DEFAULT_SERVER_STATUS });
   if (response.status === 200 && response.data.result === "ok") {
     return 'online';
   } else {
@@ -54,8 +65,11 @@ export async function getStatus() {
 }
 
 export async function getIncidents() {
+  if (process.env.REACT_APP_TEST) {
+    return fakeData.incidents;
+  }
   const url = `${SENTINEL_SERVER_URL}/verifications?threshold=${VERIFICATION_THRESHOLD}`;
-  const response = await get(url).catch(e => {return DEFAULT_INCIDENTS});
+  const response = await get(url).catch(e => { return DEFAULT_INCIDENTS });
   if (response.status === 200 && response.data.result === "ok") {
     return response.data.verifications;
   } else {
@@ -64,8 +78,11 @@ export async function getIncidents() {
 }
 
 export async function getIncidentsByUserId(userId) {
+  if (process.env.REACT_APP_TEST) {
+    return fakeData.incidents.filter((incident) => {return incident.userId === userId});
+  }
   const url = `${SENTINEL_SERVER_URL}/verifications/${userId}/?threshold=${VERIFICATION_THRESHOLD}`;
-  const response = await get(url).catch(e => {return DEFAULT_INCIDENTS});
+  const response = await get(url).catch(e => { return DEFAULT_INCIDENTS });
   if (response.status === 200 && response.data.result === "ok") {
     return response.data.verifications;
   } else {
@@ -74,8 +91,11 @@ export async function getIncidentsByUserId(userId) {
 }
 
 export async function getEvents() {
+  if (process.env.REACT_APP_TEST) {
+    return fakeData.events;
+  }
   const url = `${SENTINEL_SERVER_URL}/events`;
-  const response = await get(url).catch(e => {return DEFAULT_EVENTS});
+  const response = await get(url).catch(e => { return DEFAULT_EVENTS });
   if (response.status === 200 && response.data.result === "ok") {
     return response.data.events;
   } else {
@@ -84,8 +104,11 @@ export async function getEvents() {
 }
 
 export async function getEventsByUserId(userId) {
+  if (process.env.REACT_APP_TEST) {
+    return fakeData.events;
+  }
   const url = `${SENTINEL_SERVER_URL}/events/${userId}`;
-  const response = await get(url).catch(e => {return DEFAULT_EVENTS});
+  const response = await get(url).catch(e => { return DEFAULT_EVENTS });
   if (response.status === 200 && response.data.result === "ok") {
     return response.data.events;
   } else {

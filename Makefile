@@ -25,7 +25,7 @@ YARN_ARGS = --modules-folder $(MODULES_DIR) $(YARN_EXTRA_ARGS)
 default: all
 
 .PHONY: all
-all: install-deps check
+all: install-deps
 
 # Cleanup targets
 .PHONY: mrproper
