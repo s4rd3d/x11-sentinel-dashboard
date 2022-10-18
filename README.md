@@ -47,7 +47,7 @@ The application can be configured with the following environment variables:
 1.  Install the dependencies:
 
     ```
-    make install-deps
+    $ make install-deps
     ```
 
 2.  Export the environment variables needed by the project. Using `direnv` is
@@ -57,7 +57,7 @@ The application can be configured with the following environment variables:
 3.  Start the development server:
 
     ```
-    make server
+    $ make server
     ```
 
 ### Building and running the project with Docker
@@ -65,13 +65,13 @@ The application can be configured with the following environment variables:
 1.  Build the project with the following command:
 
     ```
-    docker-compose --env-file env.local -f docker-compose.yml build
+    $ docker-compose --env-file env.local -f docker-compose.yml build
     ```
 
 2.  Start the container with the following command:
 
     ```
-    docker-compose --env-file env.local -f docker-compose.yml up -d
+    $ docker-compose --env-file env.local -f docker-compose.yml up -d
     ```
 
 ### Testing the project with test dummy users
@@ -84,11 +84,11 @@ true. In order to create a Docker container in test environment, use the
 1.  Build the project with the following command:
 
     ```
-    docker-compose --env-file env.test -f docker-compose.yml build
+    $ docker-compose --env-file env.test -f docker-compose.yml build
     ```
 
 2.  Start the container with the following command:
 
     ```
-    docker-compose --env-file env.test -f docker-compose.yml up -d
+    $ docker-compose --env-file env.test -f docker-compose.yml up -d
     ```
