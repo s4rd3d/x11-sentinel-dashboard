@@ -40,7 +40,7 @@ class UsersTable extends React.Component {
         date: u.createdAt.substring(0, 10),
         time: u.createdAt.substring(12, 19),
         userId: u.userId,
-        successfulVerifications: u.verifications - u.incidents,
+        successfulVerifications: Math.max(u.verifications - u.incidents, 0),
         incidents: u.incidents
       }
     })

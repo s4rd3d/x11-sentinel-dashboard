@@ -26,7 +26,7 @@ async function get(url) {
 }
 
 export async function getUsers() {
-  if (process.env.REACT_APP_TEST === true) {
+  if (process.env.REACT_APP_TEST === 'true') {
     return fakeData.users;
   }
   const url = `${SENTINEL_SERVER_URL}/users?threshold=${VERIFICATION_THRESHOLD}`;
@@ -39,8 +39,8 @@ export async function getUsers() {
 }
 
 export async function getUser(userId) {
-  if (process.env.REACT_APP_TEST === true) {
-    return fakeData.users.filter((user) => {return user.userId === userId});
+  if (process.env.REACT_APP_TEST === 'true') {
+    return fakeData.users.filter((user) => {return user.userId === userId})[0];
   }
   const url = `${SENTINEL_SERVER_URL}/users/${userId}/?threshold=${VERIFICATION_THRESHOLD}`;
   const response = await get(url).catch(e => { return DEFAULT_USER });
@@ -52,7 +52,7 @@ export async function getUser(userId) {
 }
 
 export async function getStatus() {
-  if (process.env.REACT_APP_TEST === true) {
+  if (process.env.REACT_APP_TEST === 'true') {
     return 'online';
   }
   const url = `${SENTINEL_SERVER_URL}/state`;
@@ -65,7 +65,7 @@ export async function getStatus() {
 }
 
 export async function getIncidents() {
-  if (process.env.REACT_APP_TEST === true) {
+  if (process.env.REACT_APP_TEST === 'true') {
     return fakeData.incidents;
   }
   const url = `${SENTINEL_SERVER_URL}/verifications?threshold=${VERIFICATION_THRESHOLD}`;
@@ -78,7 +78,7 @@ export async function getIncidents() {
 }
 
 export async function getIncidentsByUserId(userId) {
-  if (process.env.REACT_APP_TEST === true) {
+  if (process.env.REACT_APP_TEST === 'true') {
     return fakeData.incidents.filter((incident) => {return incident.userId === userId});
   }
   const url = `${SENTINEL_SERVER_URL}/verifications/${userId}/?threshold=${VERIFICATION_THRESHOLD}`;
@@ -91,7 +91,7 @@ export async function getIncidentsByUserId(userId) {
 }
 
 export async function getEvents() {
-  if (process.env.REACT_APP_TEST === true) {
+  if (process.env.REACT_APP_TEST === 'true') {
     return fakeData.events;
   }
   const url = `${SENTINEL_SERVER_URL}/events`;
@@ -104,7 +104,7 @@ export async function getEvents() {
 }
 
 export async function getEventsByUserId(userId) {
-  if (process.env.REACT_APP_TEST === true) {
+  if (process.env.REACT_APP_TEST === 'true') {
     return fakeData.events;
   }
   const url = `${SENTINEL_SERVER_URL}/events/${userId}`;
